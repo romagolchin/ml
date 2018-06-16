@@ -44,8 +44,8 @@ class ModelSelector:
             self.X, self.y)
         self.selected_features = [features[i] for i in feature_filter.get_support(indices=True)]
         self.X = feature_filter.transform(self.X)
-        print(self.boston.DESCR)
 
+        # most of the models used here work best with scaled data
         self.scaler = pp.StandardScaler().fit(self.X)
         self.X_scaled = self.scaler.transform(self.X)
 
